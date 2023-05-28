@@ -1,0 +1,228 @@
+local gui = Instance.new("ScreenGui")
+
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+
+frame.Size = UDim2.new(0, 150, 0, 50)
+
+frame.Position = UDim2.new(0, 20, 0.5, -25)
+
+frame.AnchorPoint = Vector2.new(0, 0.5)
+
+frame.BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)
+
+frame.BackgroundTransparency = 0.5
+
+frame.BorderSizePixel = 0
+
+frame.Parent = gui
+
+local corner = Instance.new("UICorner")
+
+corner.CornerRadius = UDim.new(0, 10)
+
+corner.Parent = frame
+
+local secondUI = Instance.new("Frame")
+
+secondUI.Name = "SecondUI"
+
+secondUI.Size = UDim2.new(0, 400, 0, 300)
+
+secondUI.Position = UDim2.new(0.5, -200, 0.5, -150)
+
+secondUI.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+
+secondUI.Active = true
+
+secondUI.Parent = gui
+
+local title = Instance.new("TextLabel")
+
+title.Name = "Title"
+
+title.Size = UDim2.new(1, 0, 0, 30)
+
+title.BackgroundTransparency = 1
+
+title.Text = "Second UI"
+
+title.TextColor3 = Color3.new(1, 1, 1)
+
+title.Font = Enum.Font.SourceSansBold
+
+title.TextScaled = true
+
+title.Parent = secondUI
+
+local corner2 = Instance.new("UICorner")
+
+corner2.CornerRadius = UDim.new(0, 10)
+
+corner2.Parent = secondUI
+
+secondUI.Visible = false
+
+local UserInputService = game:GetService("UserInputService")
+
+local isMobile = UserInputService.TouchEnabled
+
+local button = nil
+
+local isPC = false
+
+if isMobile then
+
+    button = Instance.new("TextButton")
+
+    button.Name = "MyButton"
+
+    button.Size = UDim2.new(1, 0, 1, 0)
+
+    button.BackgroundTransparency = 1
+
+    button.Text = "Open"
+
+    button.TextColor3 = Color3.new(1, 1, 1)
+
+    button.TextScaled = true
+
+    button.Font = Enum.Font.SourceSansBold
+
+    button.TextWrapped = true
+
+    button.Parent = frame
+
+else
+
+    isPC = true
+
+    frame.Visible = false
+
+end
+
+local function onClick()
+
+    if secondUI.Visible then
+
+        secondUI:TweenSizeAndPosition(UDim2.new(0, 0, 0, 0), UDim2.new(0.5, 0, 0.5, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true, function()
+
+            secondUI.Visible = false
+
+        end)
+
+    else
+
+        secondUI.Visible = true
+
+        secondUI.Size = UDim2.new(0, 0, 0, 0)
+
+        secondUI.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+        secondUI:TweenSizeAndPosition(UDim2.new(0, 400, 0, 300), UDim2.new(0.5, -200, 0.5, -150), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true)
+
+    end
+
+end
+
+if button then
+
+    button.MouseButton1Click:Connect(onClick)
+
+end
+
+local dragging = false
+
+local dragStartPos = nil
+
+local function startDrag(input)
+
+    if (isPC and input.UserInputType == Enum.UserInputType.MouseButton1) or (isMobile and input.UserInputType == Enum.UserInputType.Touch) then
+
+        dragging = true
+
+        dragStartPos = input.Position
+
+    end
+
+end
+
+local function endDrag(input)
+
+    if (isPC and input.UserInputType == Enum.UserInputType.MouseButton1) or (isMobile and input.UserInputType == Enum.UserInputType.Touch) then
+
+        dragging = false
+
+    end
+
+end
+
+local function updateDrag(input)
+
+    if dragging and ((isPC and input.UserInputType == Enum.UserInputType.MouseMovement) or (isMobile and input.UserInputType == Enum.UserInputType.Touch)) then
+
+        local dragDelta = input.Position - dragStartPos
+
+        secondUI.Position = UDim2.new(
+
+            secondUI.Position.X.Scale,
+
+            secondUI.Position.X.Offset + dragDelta.X,
+
+            secondUI.Position.Y.Scale,
+
+            secondUI.Position.Y.Offset + dragDelta.Y
+
+        )
+
+        dragStartPos = input.Position
+
+    end
+
+end
+
+secondUI.InputBegan:Connect(startDrag)
+
+secondUI.InputEnded:Connect(endDrag)
+
+secondUI.InputChanged:Connect(updateDrag)
+
+local function saveUIPosition()
+
+    local position = secondUI.Position
+
+    local success, error = pcall(function()
+
+        game:GetService("DataStoreService"):GetDataStore("SavedUIPosition"):SetAsync("UIPosition", position)
+
+    end)
+
+    if not success then
+
+        warn("Failed to save UI position:", error)
+
+    end
+
+end
+
+local function loadUIPosition()
+
+    local success, savedPosition = pcall(function()
+
+        return game:GetService("DataStoreService"):GetDataStore("SavedUIPosition"):GetAsync("UIPosition")
+
+    end)
+
+    if success and savedPosition then
+
+        secondUI.Position = savedPosition
+
+    end
+
+end
+
+game:BindToClose(saveUIPosition)
+
+loadUIPosition()
+
