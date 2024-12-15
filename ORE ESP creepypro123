@@ -1,0 +1,127 @@
+local a=Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui) 
+local b=Instance.new("TextButton",a) 
+b.Size=UDim2.new(0,50,0,50) 
+b.Position=UDim2.new(0,15,0,15) 
+b.BackgroundColor3=Color3.fromRGB(70,70,70) 
+b.Text="+" 
+b.TextColor3=Color3.fromRGB(255,255,255) 
+b.Font=Enum.Font.GothamBold 
+b.TextSize=24 
+b.BorderSizePixel=0 
+
+local c=Instance.new("Frame",a) 
+c.Size=UDim2.new(0,250,0,400) 
+c.Position=UDim2.new(0,15,0,70) 
+c.BackgroundColor3=Color3.fromRGB(50,50,50) 
+c.BorderSizePixel=0 
+c.Visible=false 
+
+local d=Instance.new("UICorner",c) 
+d.CornerRadius=UDim.new(0,10) 
+
+local e=Instance.new("ScrollingFrame",c) 
+e.Size=UDim2.new(1,-20,1,-60) 
+e.Position=UDim2.new(0,10,0,50) 
+e.CanvasSize=UDim2.new(0,0,0,0) 
+e.BackgroundTransparency=1 
+e.ScrollBarThickness=8 
+e.ScrollBarImageColor3=Color3.fromRGB(150,150,150) 
+
+local f=Instance.new("TextLabel",c) 
+f.Text="Ore ESP Settings" 
+f.Size=UDim2.new(1,0,0,50) 
+f.BackgroundColor3=Color3.fromRGB(40,40,40) 
+f.TextColor3=Color3.fromRGB(255,255,255) 
+f.Font=Enum.Font.GothamBold 
+f.TextSize=18 
+f.BorderSizePixel=0 
+
+local g,h,i 
+
+local function j(k) 
+k.InputBegan:Connect(function(l) 
+if l.UserInputType==Enum.UserInputType.MouseButton1 or l.UserInputType==Enum.UserInputType.Touch then 
+g=true 
+h=l.Position 
+i=k.Position 
+l.Changed:Connect(function() 
+if l.UserInputState==Enum.UserInputState.End then 
+g=false 
+end 
+end) 
+end 
+end) 
+k.InputChanged:Connect(function(l) 
+if g and(l.UserInputType==Enum.UserInputType.MouseMovement or l.UserInputType==Enum.UserInputType.Touch) then 
+local m=l.Position-h 
+k.Position=UDim2.new(i.X.Scale,i.X.Offset+m.X,i.Y.Scale,i.Y.Offset+m.Y) 
+end 
+end) 
+end 
+
+j(c) 
+
+local n={CoalOre=true,SteelOre=true,GoldOre=true,DiamondOre=true,RubyOre=true,SapphireOre=true,EmeraldOre=true} 
+local o={"CoalOre","SteelOre","GoldOre","DiamondOre","RubyOre","SapphireOre","EmeraldOre"} 
+local p={Color3.fromRGB(80,80,80),Color3.fromRGB(192,192,192),Color3.fromRGB(255,223,0),Color3.fromRGB(0,191,255),Color3.fromRGB(255,69,0),Color3.fromRGB(75,0,130),Color3.fromRGB(0,255,0)} 
+
+local function q() 
+for _,r in ipairs(game.Workspace.Blocks:GetDescendants()) do 
+if table.find(o,r.Name) then 
+if not r:FindFirstChild("ESP") and n[r.Name] then 
+local s=Instance.new("BoxHandleAdornment") 
+s.Name="ESP" 
+s.Size=r.Size 
+s.Adornee=r 
+s.AlwaysOnTop=true 
+s.ZIndex=10 
+s.Transparency=0.69 
+s.Color3=p[table.find(o,r.Name)] 
+s.Parent=r 
+elseif r:FindFirstChild("ESP") and not n[r.Name] then 
+r.ESP:Destroy() 
+end 
+end 
+end 
+end 
+
+game.Workspace.Blocks.DescendantAdded:Connect(function(t) 
+if table.find(o,t.Name) then 
+q() 
+end 
+end) 
+
+game.Workspace.Blocks.DescendantRemoving:Connect(function(t) 
+if t:FindFirstChild("ESP") then 
+t.ESP:Destroy() 
+end 
+end) 
+
+for u,v in ipairs(o) do 
+local w=Instance.new("TextButton",e) 
+w.Text=v 
+w.Size=UDim2.new(1,-10,0,35) 
+w.Position=UDim2.new(0,5,0,(u-1)*40) 
+w.BackgroundColor3=Color3.fromRGB(100,100,100) 
+w.TextColor3=Color3.fromRGB(255,255,255) 
+w.Font=Enum.Font.Gotham 
+w.TextSize=16 
+w.BorderSizePixel=0 
+
+w.MouseButton1Click:Connect(function() 
+n[v]=not n[v] 
+w.BackgroundColor3=n[v] and Color3.fromRGB(100,100,100) or Color3.fromRGB(150,0,0) 
+q() 
+end) 
+end 
+
+e.CanvasSize=UDim2.new(0,0,0,#o*40) 
+
+b.MouseButton1Click:Connect(function() 
+c.Visible=not c.Visible 
+b.Text=c.Visible and"-"or"+" 
+end) 
+
+while wait(2) do 
+q() 
+end
