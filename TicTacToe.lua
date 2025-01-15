@@ -12,6 +12,7 @@ CoreGui:SetCore("SendNotification", {
 --no virus this time
 
 local ScreenGui1 = Instance.new("ScreenGui") 
+ScreenGui1.Name = "TTT"
 ScreenGui1.Parent = game.CoreGui
 
 local Frame = Instance.new("ImageButton") 
