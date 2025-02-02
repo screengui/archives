@@ -1,0 +1,1480 @@
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "Script executed!"; --chat notification
+Font = Enum.Font.GothamBlack; --font changeable
+FontSize = Enum.FontSize.Size24; --font size changeable
+})
+wait()
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "Minerscave 1.6 script V1.0"; --chat notification
+Font = Enum.Font.GothamBlack; --font changeable
+FontSize = Enum.FontSize.Size24; --font size changeable
+})
+wait(2)
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "Loading Minerscave 1.6 script V1.0"; --chat notification
+Font = Enum.Font.GothamBlack; --font changeable
+FontSize = Enum.FontSize.Size24; --font size changeable
+})
+wait(2)
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "Minerscave 1.6 script Loaded V1.0"; --chat notification
+Font = Enum.Font.GothamBlack; --font changeable
+FontSize = Enum.FontSize.Size24; --font size changeable
+})
+wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Minerscave 1.6 script V1.0", "BloodTheme")
+
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Solo script")
+Section:NewButton("Free cam", "Press SHITF+P For turn on", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/ct8Kq5F0", true))()
+end)
+Section:NewSlider("WalkSpeed", "Just walkspeed changuer", 90, 16, function(s)
+    getgenv().WalkSpeedValue = s;
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Section:NewButton("Light", "Just light | Click again = more light | !LOCAL!", function()
+    character = game:GetService("Players").LocalPlayer.Character
+pointLight = Instance.new("PointLight")
+pointLight.Parent = character.HumanoidRootPart
+end)
+Section:NewButton("Noclip", "That is great no?", function()
+    if _G.Noclip == nil or not _G.Noclip.Connected then
+lp = game:service'Players'.LocalPlayer
+_G.Noclip = game:service'RunService'.Stepped:Connect(function()
+lp.Character.Head.CanCollide = false
+lp.Character.LowerTorso.CanCollide = false
+lp.Character.UpperTorso.CanCollide = false
+lp.Character.HumanoidRootPart.CanCollide = false
+if lp.Character:FindFirstChild'Badge' then
+lp.Character.Badge.CanCollide = false
+end
+end)
+end
+end)
+Section:NewButton("Cframe walk", "CFrame walk (Press LeftShift)", function()
+    local Player = game:GetService'Players'.LocalPlayer;
+local UIS = game:GetService'UserInputService';
+UIS.InputBegan:connect(function(UserInput)
+        if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.LeftShift then
+            _G.Running = true
+                while wait(0.001) and _G.Running == true do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.1
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.1
+end
+        end
+end)
+UIS.InputEnded:connect(function(UserInput)
+        if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.LeftShift then
+                _G.Running = false
+        end
+end)
+end)
+Section:NewToggle("No gravity", "Gravity toggle", function(state)
+    if state then
+
+        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\109\97\105\110\47\71\114\97\118\105\116\121\115\47\103\114\97\118\105\116\121\79\110"))()
+    else
+    
+        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\109\97\105\110\47\71\114\97\118\105\116\121\115\47\71\114\97\118\105\116\121\79\102\102"))()
+    end
+end)
+
+
+Section:NewToggle("Inf Jump", "Jump in air 🤑", function(state)
+    if state then
+        loadstring(game:HttpGet("https://pastebin.com/raw/HQsQysa8", true))()
+    else
+        _G.infinjump = false
+ 
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+    end
+end)
+Section:NewButton("Click tp", "CTRL + CLICK", function()
+    noclip = false
+local UIS = game:GetService("UserInputService")
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+
+function GetCharacter()
+   return game.Players.LocalPlayer.Character
+end
+
+function Teleport(pos)
+   local Char = GetCharacter()
+   if Char then
+       Char:MoveTo(pos)
+   end
+end
+
+
+UIS.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+       Teleport(Mouse.Hit.p)
+   end
+end)
+end)
+
+
+
+
+local Tab = Window:NewTab("Visuals")
+local Section = Tab:NewSection("Solo script")
+Section:NewToggle("Full bright", "Great for the night", function(state)
+    if state then
+        loadstring(game:HttpGet("https://pastebin.com/raw/13fxDjAY", true))()
+    else
+        loadstring(game:HttpGet("https://pastebin.com/raw/13fxDjAY", true))()
+    end
+end)
+Section:NewToggle("Toggle Wearedevds esp", "UH", function(state2)
+    if state2 then
+        _G.spedro = true
+                while wait(2) and _G.spedro == true do
+_G.WRDESPEnabled = nil --Enables the ESP (Defaults to true)
+_G.WRDESPBoxes = true --Draws boxes around other players (Defaults to true)
+_G.WRDESPTeamColors = true --Distinguish different teams by their team color. If the game sets one. (Defaults to true)
+_G.WRDESPTracers = false --Displays lines leading to other players (Defaults to false)
+_G.WRDESPNames = true --Displays the names of the players within the ESP box (Defaults to true)
+
+--Dont edit below
+
+--Only ever load the script once
+if not _G.WRDESPLoaded then    
+    ----[[ First- Load Kiriot ESP Library ]]----
+
+    --Settings--
+    local ESP = {
+        Enabled = false,
+        Boxes = true,
+        BoxShift = CFrame.new(0,-1.5,0),
+        BoxSize = Vector3.new(4,6,0),
+        Color = Color3.fromRGB(255, 170, 0),
+        FaceCamera = false,
+        Names = true,
+        TeamColor = true,
+        Thickness = 2,
+        AttachShift = 1,
+        TeamMates = true,
+        Players = true,
+        
+        Objects = setmetatable({}, {__mode="kv"}),
+        Overrides = {}
+    }
+
+    --Declarations--
+    local cam = workspace.CurrentCamera
+    local plrs = game:GetService("Players")
+    local plr = plrs.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    local V3new = Vector3.new
+    local WorldToViewportPoint = cam.WorldToViewportPoint
+
+    --Functions--
+    local function Draw(obj, props)
+        local new = Drawing.new(obj)
+        
+        props = props or {}
+        for i,v in pairs(props) do
+            new[i] = v
+        end
+        return new
+    end
+
+    function ESP:GetTeam(p)
+        local ov = self.Overrides.GetTeam
+        if ov then
+            return ov(p)
+        end
+        
+        return p and p.Team
+    end
+
+    function ESP:IsTeamMate(p)
+        local ov = self.Overrides.IsTeamMate
+        if ov then
+            return ov(p)
+        end
+        
+        return self:GetTeam(p) == self:GetTeam(plr)
+    end
+
+    function ESP:GetColor(obj)
+        local ov = self.Overrides.GetColor
+        if ov then
+            return ov(obj)
+        end
+        local p = self:GetPlrFromChar(obj)
+        return p and self.TeamColor and p.Team and p.Team.TeamColor.Color or self.Color
+    end
+
+    function ESP:GetPlrFromChar(char)
+        local ov = self.Overrides.GetPlrFromChar
+        if ov then
+            return ov(char)
+        end
+        
+        return plrs:GetPlayerFromCharacter(char)
+    end
+
+    function ESP:Toggle(bool)
+        self.Enabled = bool
+        if not bool then
+            for i,v in pairs(self.Objects) do
+                if v.Type == "Box" then --fov circle etc
+                    if v.Temporary then
+                        v:Remove()
+                    else
+                        for i,v in pairs(v.Components) do
+                            v.Visible = false
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    function ESP:GetBox(obj)
+        return self.Objects[obj]
+    end
+
+    function ESP:AddObjectListener(parent, options)
+        local function NewListener(c)
+            if type(options.Type) == "string" and c:IsA(options.Type) or options.Type == nil then
+                if type(options.Name) == "string" and c.Name == options.Name or options.Name == nil then
+                    if not options.Validator or options.Validator(c) then
+                        local box = ESP:Add(c, {
+                            PrimaryPart = type(options.PrimaryPart) == "string" and c:WaitForChild(options.PrimaryPart) or type(options.PrimaryPart) == "function" and options.PrimaryPart(c),
+                            Color = type(options.Color) == "function" and options.Color(c) or options.Color,
+                            ColorDynamic = options.ColorDynamic,
+                            Name = type(options.CustomName) == "function" and options.CustomName(c) or options.CustomName,
+                            IsEnabled = options.IsEnabled,
+                            RenderInNil = options.RenderInNil
+                        })
+                        --TODO: add a better way of passing options
+                        if options.OnAdded then
+                            coroutine.wrap(options.OnAdded)(box)
+                        end
+                    end
+                end
+            end
+        end
+
+        if options.Recursive then
+            parent.DescendantAdded:Connect(NewListener)
+            for i,v in pairs(parent:GetDescendants()) do
+                coroutine.wrap(NewListener)(v)
+            end
+        else
+            parent.ChildAdded:Connect(NewListener)
+            for i,v in pairs(parent:GetChildren()) do
+                coroutine.wrap(NewListener)(v)
+            end
+        end
+    end
+
+    local boxBase = {}
+    boxBase.__index = boxBase
+
+    function boxBase:Remove()
+        ESP.Objects[self.Object] = nil
+        for i,v in pairs(self.Components) do
+            v.Visible = false
+            v:Remove()
+            self.Components[i] = nil
+        end
+    end
+
+    function boxBase:Update()
+        if not self.PrimaryPart then
+            --warn("not supposed to print", self.Object)
+            return self:Remove()
+        end
+
+        local color
+        if ESP.Highlighted == self.Object then
+        color = ESP.HighlightColor
+        else
+            color = self.Color or self.ColorDynamic and self:ColorDynamic() or ESP:GetColor(self.Object) or ESP.Color
+        end
+
+        local allow = true
+        if ESP.Overrides.UpdateAllow and not ESP.Overrides.UpdateAllow(self) then
+            allow = false
+        end
+        if self.Player and not ESP.TeamMates and ESP:IsTeamMate(self.Player) then
+            allow = false
+        end
+        if self.Player and not ESP.Players then
+            allow = false
+        end
+        if self.IsEnabled and (type(self.IsEnabled) == "string" and not ESP[self.IsEnabled] or type(self.IsEnabled) == "function" and not self:IsEnabled()) then
+            allow = false
+        end
+        if not workspace:IsAncestorOf(self.PrimaryPart) and not self.RenderInNil then
+            allow = false
+        end
+
+        if not allow then
+            for i,v in pairs(self.Components) do
+                v.Visible = false
+            end
+            return
+        end
+
+        if ESP.Highlighted == self.Object then
+            color = ESP.HighlightColor
+        end
+
+        --calculations--
+        local cf = self.PrimaryPart.CFrame
+        if ESP.FaceCamera then
+            cf = CFrame.new(cf.p, cam.CFrame.p)
+        end
+        local size = self.Size
+        local locs = {
+            TopLeft = cf * ESP.BoxShift * CFrame.new(size.X/2,size.Y/2,0),
+            TopRight = cf * ESP.BoxShift * CFrame.new(-size.X/2,size.Y/2,0),
+            BottomLeft = cf * ESP.BoxShift * CFrame.new(size.X/2,-size.Y/2,0),
+            BottomRight = cf * ESP.BoxShift * CFrame.new(-size.X/2,-size.Y/2,0),
+            TagPos = cf * ESP.BoxShift * CFrame.new(0,size.Y/2,0),
+            Torso = cf * ESP.BoxShift
+        }
+
+        if ESP.Boxes then
+            local TopLeft, Vis1 = WorldToViewportPoint(cam, locs.TopLeft.p)
+            local TopRight, Vis2 = WorldToViewportPoint(cam, locs.TopRight.p)
+            local BottomLeft, Vis3 = WorldToViewportPoint(cam, locs.BottomLeft.p)
+            local BottomRight, Vis4 = WorldToViewportPoint(cam, locs.BottomRight.p)
+
+            if self.Components.Quad then
+                if Vis1 or Vis2 or Vis3 or Vis4 then
+                    self.Components.Quad.Visible = true
+                    self.Components.Quad.PointA = Vector2.new(TopRight.X, TopRight.Y)
+                    self.Components.Quad.PointB = Vector2.new(TopLeft.X, TopLeft.Y)
+                    self.Components.Quad.PointC = Vector2.new(BottomLeft.X, BottomLeft.Y)
+                    self.Components.Quad.PointD = Vector2.new(BottomRight.X, BottomRight.Y)
+                    self.Components.Quad.Color = color
+                else
+                    self.Components.Quad.Visible = false
+                end
+            end
+        else
+            self.Components.Quad.Visible = false
+        end
+
+        if ESP.Names then
+            local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
+            
+            if Vis5 then
+                self.Components.Name.Visible = true
+                self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y)
+                self.Components.Name.Text = self.Name
+                self.Components.Name.Color = color
+                
+                self.Components.Distance.Visible = true
+                self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
+                self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .."m away"
+                self.Components.Distance.Color = color
+            else
+                self.Components.Name.Visible = false
+                self.Components.Distance.Visible = false
+            end
+        else
+            self.Components.Name.Visible = false
+            self.Components.Distance.Visible = false
+        end
+        
+        if ESP.Tracers then
+            local TorsoPos, Vis6 = WorldToViewportPoint(cam, locs.Torso.p)
+
+            if Vis6 then
+                self.Components.Tracer.Visible = true
+                self.Components.Tracer.From = Vector2.new(TorsoPos.X, TorsoPos.Y)
+                self.Components.Tracer.To = Vector2.new(cam.ViewportSize.X/2,cam.ViewportSize.Y/ESP.AttachShift)
+                self.Components.Tracer.Color = color
+            else
+                self.Components.Tracer.Visible = false
+            end
+        else
+            self.Components.Tracer.Visible = false
+        end
+    end
+
+    function ESP:Add(obj, options)
+        if not obj.Parent and not options.RenderInNil then
+            return warn(obj, "has no parent")
+        end
+
+        local box = setmetatable({
+            Name = options.Name or obj.Name,
+            Type = "Box",
+            Color = options.Color --[[or self:GetColor(obj)]],
+            Size = options.Size or self.BoxSize,
+            Object = obj,
+            Player = options.Player or plrs:GetPlayerFromCharacter(obj),
+            PrimaryPart = options.PrimaryPart or obj.ClassName == "Model" and (obj.PrimaryPart or obj:FindFirstChild("HumanoidRootPart") or obj:FindFirstChildWhichIsA("BasePart")) or obj:IsA("BasePart") and obj,
+            Components = {},
+            IsEnabled = options.IsEnabled,
+            Temporary = options.Temporary,
+            ColorDynamic = options.ColorDynamic,
+            RenderInNil = options.RenderInNil
+        }, boxBase)
+
+        if self:GetBox(obj) then
+            self:GetBox(obj):Remove()
+        end
+
+        box.Components["Quad"] = Draw("Quad", {
+            Thickness = self.Thickness,
+            Color = color,
+            Transparency = 1,
+            Filled = false,
+            Visible = self.Enabled and self.Boxes
+        })
+        box.Components["Name"] = Draw("Text", {
+            Text = box.Name,
+            Color = box.Color,
+            Center = true,
+            Outline = true,
+            Size = 19,
+            Visible = self.Enabled and self.Names
+        })
+        box.Components["Distance"] = Draw("Text", {
+            Color = box.Color,
+            Center = true,
+            Outline = true,
+            Size = 19,
+            Visible = self.Enabled and self.Names
+        })
+        
+        box.Components["Tracer"] = Draw("Line", {
+            Thickness = ESP.Thickness,
+            Color = box.Color,
+            Transparency = 1,
+            Visible = self.Enabled and self.Tracers
+        })
+        self.Objects[obj] = box
+        
+        obj.AncestryChanged:Connect(function(_, parent)
+            if parent == nil and ESP.AutoRemove ~= false then
+                box:Remove()
+            end
+        end)
+        obj:GetPropertyChangedSignal("Parent"):Connect(function()
+            if obj.Parent == nil and ESP.AutoRemove ~= false then
+                box:Remove()
+            end
+        end)
+
+        local hum = obj:FindFirstChildOfClass("Humanoid")
+        if hum then
+            hum.Died:Connect(function()
+                if ESP.AutoRemove ~= false then
+                    box:Remove()
+                end
+            end)
+        end
+
+        return box
+    end
+
+    local function CharAdded(char)
+        local p = plrs:GetPlayerFromCharacter(char)
+        if not char:FindFirstChild("HumanoidRootPart") then
+            local ev
+            ev = char.ChildAdded:Connect(function(c)
+                if c.Name == "HumanoidRootPart" then
+                    ev:Disconnect()
+                    ESP:Add(char, {
+                        Name = p.Name,
+                        Player = p,
+                        PrimaryPart = c
+                    })
+                end
+            end)
+        else
+            ESP:Add(char, {
+                Name = p.Name,
+                Player = p,
+                PrimaryPart = char.HumanoidRootPart
+            })
+        end
+    end
+    local function PlayerAdded(p)
+        p.CharacterAdded:Connect(CharAdded)
+        if p.Character then
+            coroutine.wrap(CharAdded)(p.Character)
+        end
+    end
+    plrs.PlayerAdded:Connect(PlayerAdded)
+    for i,v in pairs(plrs:GetPlayers()) do
+        if v ~= plr then
+            PlayerAdded(v)
+        end
+    end
+
+    game:GetService("RunService").RenderStepped:Connect(function()
+        cam = workspace.CurrentCamera
+        for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
+            if v.Update then
+                local s,e = pcall(v.Update, v)
+                if not s then warn("[EU]", e, v.Object:GetFullName()) end
+            end
+        end
+    end)
+
+    ----[[ Now Begins WRD's modification for implementation ]]----
+
+    --Sets defaults where required
+    if _G.WRDESPEnabled == nil then _G.WRDESPEnabled = true end
+    if _G.WRDESPBoxes == false then _G.WRDESPBoxes = true end
+    if _G.WRDESPTeamColors == false then _G.WRDESPTeamColors = true end
+    if _G.WRDESPTracers == false then _G.WRDESPTracers = false end
+    if _G.WRDESPNames == false then _G.WRDESPNames = true end
+	
+	--Hacky way to keep up with setting changes
+    while wait(.1) do
+        ESP:Toggle(_G.WRDESPEnabled or false)
+        ESP.Boxes = _G.WRDESPBoxes or false
+        ESP.TeamColors = _G.WRDESPTeamColors or false
+        ESP.Tracers = _G.WRDESPTracers or false
+        ESP.Names = _G.WRDESPNames or false
+    end
+
+    _G.WRDESPLoaded = true
+end
+
+end
+    else
+         _G.spedro = false
+        wait(0.5)
+_G.WRDESPEnabled = nil --Enables the ESP (Defaults to true)
+_G.WRDESPBoxes = false --Draws boxes around other players (Defaults to true)
+_G.WRDESPTeamColors = false --Distinguish different teams by their team color. If the game sets one. (Defaults to true)
+_G.WRDESPTracers = false --Displays lines leading to other players (Defaults to false)
+_G.WRDESPNames = false --Displays the names of the players within the ESP box (Defaults to true)
+
+--Dont edit below
+
+--Only ever load the script once
+if not _G.WRDESPLoaded then    
+    ----[[ First- Load Kiriot ESP Library ]]----
+
+    --Settings--
+    local ESP = {
+        Enabled = false,
+        Boxes = true,
+        BoxShift = CFrame.new(0,-1.5,0),
+        BoxSize = Vector3.new(4,6,0),
+        Color = Color3.fromRGB(255, 170, 0),
+        FaceCamera = false,
+        Names = true,
+        TeamColor = true,
+        Thickness = 2,
+        AttachShift = 1,
+        TeamMates = true,
+        Players = true,
+        
+        Objects = setmetatable({}, {__mode="kv"}),
+        Overrides = {}
+    }
+
+    --Declarations--
+    local cam = workspace.CurrentCamera
+    local plrs = game:GetService("Players")
+    local plr = plrs.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    local V3new = Vector3.new
+    local WorldToViewportPoint = cam.WorldToViewportPoint
+
+    --Functions--
+    local function Draw(obj, props)
+        local new = Drawing.new(obj)
+        
+        props = props or {}
+        for i,v in pairs(props) do
+            new[i] = v
+        end
+        return new
+    end
+
+    function ESP:GetTeam(p)
+        local ov = self.Overrides.GetTeam
+        if ov then
+            return ov(p)
+        end
+        
+        return p and p.Team
+    end
+
+    function ESP:IsTeamMate(p)
+        local ov = self.Overrides.IsTeamMate
+        if ov then
+            return ov(p)
+        end
+        
+        return self:GetTeam(p) == self:GetTeam(plr)
+    end
+
+    function ESP:GetColor(obj)
+        local ov = self.Overrides.GetColor
+        if ov then
+            return ov(obj)
+        end
+        local p = self:GetPlrFromChar(obj)
+        return p and self.TeamColor and p.Team and p.Team.TeamColor.Color or self.Color
+    end
+
+    function ESP:GetPlrFromChar(char)
+        local ov = self.Overrides.GetPlrFromChar
+        if ov then
+            return ov(char)
+        end
+        
+        return plrs:GetPlayerFromCharacter(char)
+    end
+
+    function ESP:Toggle(bool)
+        self.Enabled = bool
+        if not bool then
+            for i,v in pairs(self.Objects) do
+                if v.Type == "Box" then --fov circle etc
+                    if v.Temporary then
+                        v:Remove()
+                    else
+                        for i,v in pairs(v.Components) do
+                            v.Visible = false
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    function ESP:GetBox(obj)
+        return self.Objects[obj]
+    end
+
+    function ESP:AddObjectListener(parent, options)
+        local function NewListener(c)
+            if type(options.Type) == "string" and c:IsA(options.Type) or options.Type == nil then
+                if type(options.Name) == "string" and c.Name == options.Name or options.Name == nil then
+                    if not options.Validator or options.Validator(c) then
+                        local box = ESP:Add(c, {
+                            PrimaryPart = type(options.PrimaryPart) == "string" and c:WaitForChild(options.PrimaryPart) or type(options.PrimaryPart) == "function" and options.PrimaryPart(c),
+                            Color = type(options.Color) == "function" and options.Color(c) or options.Color,
+                            ColorDynamic = options.ColorDynamic,
+                            Name = type(options.CustomName) == "function" and options.CustomName(c) or options.CustomName,
+                            IsEnabled = options.IsEnabled,
+                            RenderInNil = options.RenderInNil
+                        })
+                        --TODO: add a better way of passing options
+                        if options.OnAdded then
+                            coroutine.wrap(options.OnAdded)(box)
+                        end
+                    end
+                end
+            end
+        end
+
+        if options.Recursive then
+            parent.DescendantAdded:Connect(NewListener)
+            for i,v in pairs(parent:GetDescendants()) do
+                coroutine.wrap(NewListener)(v)
+            end
+        else
+            parent.ChildAdded:Connect(NewListener)
+            for i,v in pairs(parent:GetChildren()) do
+                coroutine.wrap(NewListener)(v)
+            end
+        end
+    end
+
+    local boxBase = {}
+    boxBase.__index = boxBase
+
+    function boxBase:Remove()
+        ESP.Objects[self.Object] = nil
+        for i,v in pairs(self.Components) do
+            v.Visible = false
+            v:Remove()
+            self.Components[i] = nil
+        end
+    end
+
+    function boxBase:Update()
+        if not self.PrimaryPart then
+            --warn("not supposed to print", self.Object)
+            return self:Remove()
+        end
+
+        local color
+        if ESP.Highlighted == self.Object then
+        color = ESP.HighlightColor
+        else
+            color = self.Color or self.ColorDynamic and self:ColorDynamic() or ESP:GetColor(self.Object) or ESP.Color
+        end
+
+        local allow = true
+        if ESP.Overrides.UpdateAllow and not ESP.Overrides.UpdateAllow(self) then
+            allow = false
+        end
+        if self.Player and not ESP.TeamMates and ESP:IsTeamMate(self.Player) then
+            allow = false
+        end
+        if self.Player and not ESP.Players then
+            allow = false
+        end
+        if self.IsEnabled and (type(self.IsEnabled) == "string" and not ESP[self.IsEnabled] or type(self.IsEnabled) == "function" and not self:IsEnabled()) then
+            allow = false
+        end
+        if not workspace:IsAncestorOf(self.PrimaryPart) and not self.RenderInNil then
+            allow = false
+        end
+
+        if not allow then
+            for i,v in pairs(self.Components) do
+                v.Visible = false
+            end
+            return
+        end
+
+        if ESP.Highlighted == self.Object then
+            color = ESP.HighlightColor
+        end
+
+        --calculations--
+        local cf = self.PrimaryPart.CFrame
+        if ESP.FaceCamera then
+            cf = CFrame.new(cf.p, cam.CFrame.p)
+        end
+        local size = self.Size
+        local locs = {
+            TopLeft = cf * ESP.BoxShift * CFrame.new(size.X/2,size.Y/2,0),
+            TopRight = cf * ESP.BoxShift * CFrame.new(-size.X/2,size.Y/2,0),
+            BottomLeft = cf * ESP.BoxShift * CFrame.new(size.X/2,-size.Y/2,0),
+            BottomRight = cf * ESP.BoxShift * CFrame.new(-size.X/2,-size.Y/2,0),
+            TagPos = cf * ESP.BoxShift * CFrame.new(0,size.Y/2,0),
+            Torso = cf * ESP.BoxShift
+        }
+
+        if ESP.Boxes then
+            local TopLeft, Vis1 = WorldToViewportPoint(cam, locs.TopLeft.p)
+            local TopRight, Vis2 = WorldToViewportPoint(cam, locs.TopRight.p)
+            local BottomLeft, Vis3 = WorldToViewportPoint(cam, locs.BottomLeft.p)
+            local BottomRight, Vis4 = WorldToViewportPoint(cam, locs.BottomRight.p)
+
+            if self.Components.Quad then
+                if Vis1 or Vis2 or Vis3 or Vis4 then
+                    self.Components.Quad.Visible = true
+                    self.Components.Quad.PointA = Vector2.new(TopRight.X, TopRight.Y)
+                    self.Components.Quad.PointB = Vector2.new(TopLeft.X, TopLeft.Y)
+                    self.Components.Quad.PointC = Vector2.new(BottomLeft.X, BottomLeft.Y)
+                    self.Components.Quad.PointD = Vector2.new(BottomRight.X, BottomRight.Y)
+                    self.Components.Quad.Color = color
+                else
+                    self.Components.Quad.Visible = false
+                end
+            end
+        else
+            self.Components.Quad.Visible = false
+        end
+
+        if ESP.Names then
+            local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
+            
+            if Vis5 then
+                self.Components.Name.Visible = true
+                self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y)
+                self.Components.Name.Text = self.Name
+                self.Components.Name.Color = color
+                
+                self.Components.Distance.Visible = true
+                self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
+                self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .."m away"
+                self.Components.Distance.Color = color
+            else
+                self.Components.Name.Visible = false
+                self.Components.Distance.Visible = false
+            end
+        else
+            self.Components.Name.Visible = false
+            self.Components.Distance.Visible = false
+        end
+        
+        if ESP.Tracers then
+            local TorsoPos, Vis6 = WorldToViewportPoint(cam, locs.Torso.p)
+
+            if Vis6 then
+                self.Components.Tracer.Visible = true
+                self.Components.Tracer.From = Vector2.new(TorsoPos.X, TorsoPos.Y)
+                self.Components.Tracer.To = Vector2.new(cam.ViewportSize.X/2,cam.ViewportSize.Y/ESP.AttachShift)
+                self.Components.Tracer.Color = color
+            else
+                self.Components.Tracer.Visible = false
+            end
+        else
+            self.Components.Tracer.Visible = false
+        end
+    end
+
+    function ESP:Add(obj, options)
+        if not obj.Parent and not options.RenderInNil then
+            return warn(obj, "has no parent")
+        end
+
+        local box = setmetatable({
+            Name = options.Name or obj.Name,
+            Type = "Box",
+            Color = options.Color --[[or self:GetColor(obj)]],
+            Size = options.Size or self.BoxSize,
+            Object = obj,
+            Player = options.Player or plrs:GetPlayerFromCharacter(obj),
+            PrimaryPart = options.PrimaryPart or obj.ClassName == "Model" and (obj.PrimaryPart or obj:FindFirstChild("HumanoidRootPart") or obj:FindFirstChildWhichIsA("BasePart")) or obj:IsA("BasePart") and obj,
+            Components = {},
+            IsEnabled = options.IsEnabled,
+            Temporary = options.Temporary,
+            ColorDynamic = options.ColorDynamic,
+            RenderInNil = options.RenderInNil
+        }, boxBase)
+
+        if self:GetBox(obj) then
+            self:GetBox(obj):Remove()
+        end
+
+        box.Components["Quad"] = Draw("Quad", {
+            Thickness = self.Thickness,
+            Color = color,
+            Transparency = 1,
+            Filled = false,
+            Visible = self.Enabled and self.Boxes
+        })
+        box.Components["Name"] = Draw("Text", {
+            Text = box.Name,
+            Color = box.Color,
+            Center = true,
+            Outline = true,
+            Size = 19,
+            Visible = self.Enabled and self.Names
+        })
+        box.Components["Distance"] = Draw("Text", {
+            Color = box.Color,
+            Center = true,
+            Outline = true,
+            Size = 19,
+            Visible = self.Enabled and self.Names
+        })
+        
+        box.Components["Tracer"] = Draw("Line", {
+            Thickness = ESP.Thickness,
+            Color = box.Color,
+            Transparency = 1,
+            Visible = self.Enabled and self.Tracers
+        })
+        self.Objects[obj] = box
+        
+        obj.AncestryChanged:Connect(function(_, parent)
+            if parent == nil and ESP.AutoRemove ~= false then
+                box:Remove()
+            end
+        end)
+        obj:GetPropertyChangedSignal("Parent"):Connect(function()
+            if obj.Parent == nil and ESP.AutoRemove ~= false then
+                box:Remove()
+            end
+        end)
+
+        local hum = obj:FindFirstChildOfClass("Humanoid")
+        if hum then
+            hum.Died:Connect(function()
+                if ESP.AutoRemove ~= false then
+                    box:Remove()
+                end
+            end)
+        end
+
+        return box
+    end
+
+    local function CharAdded(char)
+        local p = plrs:GetPlayerFromCharacter(char)
+        if not char:FindFirstChild("HumanoidRootPart") then
+            local ev
+            ev = char.ChildAdded:Connect(function(c)
+                if c.Name == "HumanoidRootPart" then
+                    ev:Disconnect()
+                    ESP:Add(char, {
+                        Name = p.Name,
+                        Player = p,
+                        PrimaryPart = c
+                    })
+                end
+            end)
+        else
+            ESP:Add(char, {
+                Name = p.Name,
+                Player = p,
+                PrimaryPart = char.HumanoidRootPart
+            })
+        end
+    end
+    local function PlayerAdded(p)
+        p.CharacterAdded:Connect(CharAdded)
+        if p.Character then
+            coroutine.wrap(CharAdded)(p.Character)
+        end
+    end
+    plrs.PlayerAdded:Connect(PlayerAdded)
+    for i,v in pairs(plrs:GetPlayers()) do
+        if v ~= plr then
+            PlayerAdded(v)
+        end
+    end
+
+    game:GetService("RunService").RenderStepped:Connect(function()
+        cam = workspace.CurrentCamera
+        for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
+            if v.Update then
+                local s,e = pcall(v.Update, v)
+                if not s then warn("[EU]", e, v.Object:GetFullName()) end
+            end
+        end
+    end)
+
+    ----[[ Now Begins WRD's modification for implementation ]]----
+
+    --Sets defaults where required
+    if _G.WRDESPEnabled == nil then _G.WRDESPEnabled = true end
+    if _G.WRDESPBoxes == nil then _G.WRDESPBoxes = true end
+    if _G.WRDESPTeamColors == nil then _G.WRDESPTeamColors = true end
+    if _G.WRDESPTracers == nil then _G.WRDESPTracers = false end
+    if _G.WRDESPNames == nil then _G.WRDESPNames = true end
+	
+	--Hacky way to keep up with setting changes
+    while wait(.1) do
+        ESP:Toggle(_G.WRDESPEnabled or false)
+        ESP.Boxes = _G.WRDESPBoxes or false
+        ESP.TeamColors = _G.WRDESPTeamColors or false
+        ESP.Tracers = _G.WRDESPTracers or false
+        ESP.Names = _G.WRDESPNames or false
+    end
+
+    _G.WRDESPLoaded = true
+end
+    end
+end)
+Section:NewButton("Ore esp", "like xray", function()
+    local bb = game.Workspace.Blocks:GetDescendants()
+--Settings
+local namescript = "susESP" --name of script lol
+local wlist = {"CoalOre", "SteelOre", "GoldOre", "DiamondOre", "RubyOre"}
+local colors = {
+        Color3.fromRGB(1, 1, 1), --coal
+        Color3.fromRGB(255, 255, 255), --steel
+        Color3.fromRGB(254, 245, 54), --gold
+        Color3.fromRGB(54, 163, 254), --diamond
+        Color3.fromRGB(255, 54, 54), --ruby
+    }
+     
+--Script Here   
+for i,v in ipairs(bb) do
+	local ray = 1
+	local ree = v
+	local a = false
+	for e, p in ipairs(wlist) do
+		if p == ree.Name then
+            a = true
+            ray = e
+        end
+    end
+		
+	if a == true then
+        local Box = Instance.new("BoxHandleAdornment")
+        Box.Name = namescript
+        Box.Size = ree.Size
+        Box.Adornee = ree
+        Box.AlwaysOnTop = true
+        Box.ZIndex = 10
+        Box.Transparency = 0.69
+        Box.Parent = ree
+        Box.Color3 = colors[ray]
+	end
+end
+end)
+Section:NewButton("Chams with glow ESP", "Just a cool esp", function()
+    local dwEntities = game:GetService("Players")
+local dwLocalPlayer = dwEntities.LocalPlayer 
+local dwRunService = game:GetService("RunService")
+
+local settings_tbl = {
+    ESP_Enabled = true,
+    ESP_TeamCheck = false,
+    Chams = true,
+    Chams_Color = Color3.fromRGB(255,0,255),
+    Chams_Transparency = 0.1,
+    Chams_Glow_Color = Color3.fromRGB(255,0,0)
+}
+
+function destroy_chams(char)
+
+    for k,v in next, char:GetChildren() do 
+
+        if v:IsA("BasePart") and v.Transparency ~= 1 then
+
+            if v:FindFirstChild("Glow") and 
+            v:FindFirstChild("Chams") then
+
+                v.Glow:Destroy()
+                v.Chams:Destroy() 
+
+            end 
+
+        end 
+
+    end 
+
+end
+
+dwRunService.Heartbeat:Connect(function()
+
+    if settings_tbl.ESP_Enabled then
+
+        for k,v in next, dwEntities:GetPlayers() do 
+
+            if v ~= dwLocalPlayer then
+
+                if v.Character and
+                v.Character:FindFirstChild("HumanoidRootPart") and 
+                v.Character:FindFirstChild("Humanoid") and 
+                v.Character:FindFirstChild("Humanoid").Health ~= 0 then
+
+                    if settings_tbl.ESP_TeamCheck == false then
+
+                        local char = v.Character 
+
+                        for k,b in next, char:GetChildren() do 
+
+                            if b:IsA("BasePart") and 
+                            b.Transparency ~= 1 then
+                                
+                                if settings_tbl.Chams then
+
+                                    if not b:FindFirstChild("Glow") and
+                                    not b:FindFirstChild("Chams") then
+
+                                        local chams_box = Instance.new("BoxHandleAdornment", b)
+                                        chams_box.Name = "Chams"
+                                        chams_box.AlwaysOnTop = true 
+                                        chams_box.ZIndex = 4 
+                                        chams_box.Adornee = b 
+                                        chams_box.Color3 = settings_tbl.Chams_Color
+                                        chams_box.Transparency = settings_tbl.Chams_Transparency
+                                        chams_box.Size = b.Size + Vector3.new(0.02, 0.02, 0.02)
+
+                                        local glow_box = Instance.new("BoxHandleAdornment", b)
+                                        glow_box.Name = "Glow"
+                                        glow_box.AlwaysOnTop = false 
+                                        glow_box.ZIndex = 3 
+                                        glow_box.Adornee = b 
+                                        glow_box.Color3 = settings_tbl.Chams_Glow_Color
+                                        glow_box.Size = chams_box.Size + Vector3.new(0.13, 0.13, 0.13)
+
+                                    end
+
+                                else
+
+                                    destroy_chams(char)
+
+                                end
+                            
+                            end
+
+                        end
+
+                    else
+
+                        if v.Team == dwLocalPlayer.Team then
+                            destroy_chams(v.Character)
+                        end
+
+                    end
+
+                else
+
+                    destroy_chams(v.Character)
+
+                end
+
+            end
+
+        end
+
+    else 
+
+        for k,v in next, dwEntities:GetPlayers() do 
+
+            if v ~= dwLocalPlayer and 
+            v.Character and 
+            v.Character:FindFirstChild("HumanoidRootPart") and 
+            v.Character:FindFirstChild("Humanoid") and 
+            v.Character:FindFirstChild("Humanoid").Health ~= 0 then
+                
+                destroy_chams(v.Character)
+
+            end
+
+        end
+
+    end
+
+end)
+end)
+
+
+local Tab = Window:NewTab("Misc")
+local Section = Tab:NewSection("Solo script")
+Section:NewButton("Chat Spy", "With this you can turn on chat", function()
+    loadstring(game:HttpGet('https://cdn.y2k06.xyz/lua/SpyChat.lua', true))()
+end)
+Section:NewButton("Server Hop", "If you click this you automatic go to other server", function()
+    loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\86\100\117\66\84\50\110\116"))()
+end)
+Section:NewButton("Remove textures | Fps boost", "", function()
+    loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\75\101\111\110\101\71\105\116\104\117\98\83\112\97\109\47\109\97\105\110\47\70\112\115\66\111\111\115\116\84\101\120\116\117\114\101"))()
+end)
+Section:NewButton("Spin + noclip | Reset to stop", "Nothing", function()
+    loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\87\86\50\117\114\90\85\119"))()
+end)
+Section:NewButton("Free cam", "Press SHITF+P For turn on", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/ct8Kq5F0", true))()
+end)
+
+local Tab = Window:NewTab("Guis+Hubs")
+local Section = Tab:NewSection("Hubs!")
+Section:NewButton("Owl Hub", "Great Hub with Aimbot and Esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt", true))()
+end)
+Section:NewButton("Utility GUI", "Modified by solo script (made by ???)", function()
+    local ui = loadstring(game:HttpGet('https://raw.githubusercontent.com/BoaHacker/ROBLOX/main/ui', true))()
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local antiAFK = true
+player.Idled:connect(function()
+	if antiAFK then
+		game.VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+		wait(1)
+		game.VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+	end
+end)
+
+local Player = ui:CreateWindow({
+	text = 'Utility'
+})
+
+local Settings = ui:CreateWindow({
+	text = 'Destroy'
+})
+
+Player:AddToggle('Infinite Jump', function(state)
+	getgenv().InfiniteJump = state
+	game.UserInputService.JumpRequest:connect(function()
+		if not getgenv().InfiniteJump then return end
+		player.Character.Humanoid:ChangeState('Jumping')
+	end)
+end)
+Player:AddToggle('Click to TP', function(state)
+	getgenv().ClicktoTP = state
+	mouse.Button1Down:Connect(function()
+		if not getgenv().ClicktoTP then return end
+		player.Character.HumanoidRootPart.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z) * CFrame.Angles(0, math.rad(player.Character.HumanoidRootPart.Orientation.Y), 0)
+	end)
+end)
+
+
+
+Player:AddToggle('Noclip', function(state)
+	getgenv().Noclip = state
+	while true do
+		if not getgenv().Noclip then return end
+		game.RunService.Stepped:wait()
+		for i, v in pairs(player.Character:GetDescendants()) do
+			if v:IsA('BasePart') then
+				v.CanCollide = false
+			end
+		end
+	end
+end)
+for i, v in pairs(workspace:GetChildren()) do
+	if v.Name == 'Core' then
+		v:Destroy()
+	end
+end
+local Core = Instance.new('Part', workspace)
+Core.Name = 'Core'
+Core.Size = Vector3.new(0.05, 0.05, 0.05)
+Core.CanCollide = false
+workspace:WaitForChild('Core')
+local torso = workspace.Core
+local speed = 10
+local keys = {a = false, d = false, w = false, s = false}
+local e1
+local e2
+local function Fly()
+	local pos = Instance.new('BodyPosition', torso)
+	local gyro = Instance.new('BodyGyro', torso)
+	pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+	pos.position = torso.Position
+	gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+	gyro.cframe = torso.CFrame
+	repeat
+		wait()
+		player.Character.Humanoid.PlatformStand = true
+		local new = gyro.cframe - gyro.cframe.p + pos.position
+		if not keys.w and not keys.s and not keys.a and not keys.d then
+			speed = 5
+		end
+		if keys.w then
+			new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+			speed = speed + 0
+		end
+		if keys.s then
+			new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+			speed = speed + 0
+		end
+		if keys.d then
+			new = new * CFrame.new(speed, 0, 0)
+			speed = speed + 0
+		end
+		if keys.a then
+			new = new * CFrame.new(-speed, 0, 0)
+			speed = speed + 0
+		end
+		if speed > 10 then
+			speed = 5
+		end
+		pos.position = new.p
+		if keys.w then
+			gyro.cframe = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad(speed * 0), 0, 0)
+		elseif keys.s then
+			gyro.cframe = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(math.rad(speed * 0), 0, 0)
+		else
+			gyro.cframe = workspace.CurrentCamera.CoordinateFrame
+		end
+	until getgenv().Fly == false
+	if gyro then gyro:Destroy() end
+	if pos then pos:Destroy() end
+	player.Character.Humanoid.PlatformStand = false
+	speed = 10
+end
+e1 = mouse.KeyDown:connect(function(key)
+	if not torso or not torso.Parent then e1:disconnect() e2:disconnect() return end
+	if key == 'w' then
+		keys.w = true
+	elseif key == 's' then
+		keys.s = true
+	elseif key == 'a' then
+		keys.a = true
+	elseif key == 'd' then
+		keys.d = true
+	end
+end)
+e2 = mouse.KeyUp:connect(function(key)
+	if key == 'w' then
+		keys.w = false
+	elseif key == 's' then
+		keys.s = false
+	elseif key == 'a' then
+		keys.a = false
+	elseif key == 'd' then
+		keys.d = false
+	end
+end)
+Player:AddToggle('Fly', function(state)
+	getgenv().Fly = state
+	if not getgenv().Fly then for i, v in pairs(workspace:FindFirstChild('Core'):GetChildren()) do v:Destroy() end return end
+	local Weld = Instance.new('Weld', Core)
+	Weld.Part0 = Core
+	Weld.Part1 = player.Character.HumanoidRootPart
+	Weld.C0 = CFrame.new(0, 0, 0)
+	Fly()
+end)
+
+
+
+Player:AddBox('Walkspeed', function(state)
+	if tonumber(state.Text) ~= nil then
+		player.Character.Humanoid.WalkSpeed = state.Text
+	end
+end)
+
+Player:AddBox('Jumppower', function(state)
+	if tonumber(state.Text) ~= nil then
+		if player.Character.Humanoid.UseJumpPower == true then
+			player.Character.Humanoid.JumpPower = state.Text
+		else
+			player.Character.Humanoid.JumpHeight = state.Text
+		end
+	end
+end)
+
+Player:AddBox('Gravity', function(state)
+	if tonumber(state.Text) ~= nil then
+		workspace.Gravity = state.Text
+	end
+end)
+
+Player:AddButton('Reset to Default', function()
+	player.Character.Humanoid.WalkSpeed = 16
+	if player.Character.Humanoid.UseJumpPower == true then
+		player.Character.Humanoid.JumpPower = 50
+	else
+		player.Character.Humanoid.JumpHeight = 7.2
+	end
+	player.Character.Humanoid.JumpPower = 50
+	workspace.Gravity = 196.2
+end)
+
+Settings:AddButton('Destroy gui xD', function()
+	ui.gui:Destroy()
+	antiAFK = false
+	getgenv().InfiniteJump = false
+	getgenv().ClicktoTP = false
+	getgenv().Noclip = false
+	getgenv().Fly = false
+	player.Character.Humanoid.WalkSpeed = 16
+	if player.Character.Humanoid.UseJumpPower == true then
+		player.Character.Humanoid.JumpPower = 50
+	else
+		player.Character.Humanoid.JumpHeight = 7.2
+	end
+	workspace.Gravity = 196.2
+end)
+end)
+
+
+
+
+
+
+local Tab = Window:NewTab("Credits")
+local Section = Tab:NewSection("------------------------------------------------------------------")
+Section:NewLabel("Creator : Solo script")
+Section:NewLabel("Solo script founder : lolocahhh45")
+Section:NewLabel("Discord-https://discord.com/invite/fzSAVMKGzv")
+Section:NewKeybind("Gui toggle", "Toggle gui with F or changue to other key", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+-- Main
+local FlyTab = Window:NewTab("Fly")
+local FlySection = FlyTab:NewSection("Solo script")
+
+-- SETUP
+_G.FlySpeed = 50
+_G.FlySpeeed3 = 50
+if _G.Setup then
+else
+    _G.Setup = true
+end
+
+-- UI And Fly Functions
+FlySection:NewButton("CFRAME FLY (KeyBind 'G')", "Make Player Fly (KeyBind = G)!", function()
+    spawn(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LegitH3x0R/Roblox-Scripts/main/AEBypassing/RootAnchor.lua"))()
+
+        local UIS = game:GetService("UserInputService")
+        local OnRender = game:GetService("RunService").RenderStepped
+        
+        local Player = game:GetService("Players").LocalPlayer
+        local Character = Player.Character or Player.CharacterAdded:Wait()
+        
+        local Camera = workspace.CurrentCamera
+        local Root = Character:WaitForChild("HumanoidRootPart")
+        local C1, C2, C3;
+        local Nav = {Flying = false, Forward = false, Backward = false, Left = false, Right = false}
+        C1 = UIS.InputBegan:Connect(function(Input)
+            if Input.UserInputType == Enum.UserInputType.Keyboard then
+                if Input.KeyCode == Enum.KeyCode.G then
+                    Nav.Flying = not Nav.Flying
+                    Root.Anchored = Nav.Flying
+                elseif Input.KeyCode == Enum.KeyCode.W then
+                    Nav.Forward = true
+                elseif Input.KeyCode == Enum.KeyCode.S then
+                    Nav.Backward = true
+                elseif Input.KeyCode == Enum.KeyCode.A then
+                    Nav.Left = true
+                elseif Input.KeyCode == Enum.KeyCode.D then
+                    Nav.Right = true
+                end
+            end
+        end)
+        
+        C2 = UIS.InputEnded:Connect(function(Input)
+            if Input.UserInputType == Enum.UserInputType.Keyboard then
+                if Input.KeyCode == Enum.KeyCode.W then
+                    Nav.Forward = false
+                elseif Input.KeyCode == Enum.KeyCode.S then
+                    Nav.Backward = false
+                elseif Input.KeyCode == Enum.KeyCode.A then
+                    Nav.Left = false
+                elseif Input.KeyCode == Enum.KeyCode.D then
+                    Nav.Right = false
+                end
+            end
+        end)
+        
+        C3 = Camera:GetPropertyChangedSignal("CFrame"):Connect(function()
+            if Nav.Flying then
+                Root.CFrame = CFrame.new(Root.CFrame.Position, Root.CFrame.Position + Camera.CFrame.LookVector)
+            end
+        end)
+        
+        while true do
+            local Delta = OnRender:Wait()
+            if Nav.Flying then
+                if Nav.Forward then
+                    Root.CFrame = Root.CFrame + (Camera.CFrame.LookVector * (Delta * _G.FlySpeed))
+                end
+                if Nav.Backward then
+                    Root.CFrame = Root.CFrame + (-Camera.CFrame.LookVector * (Delta * _G.FlySpeed))
+                end
+                if Nav.Left then
+                    Root.CFrame = Root.CFrame + (-Camera.CFrame.RightVector * (Delta * _G.FlySpeed))
+                end
+                if Nav.Right then
+                    Root.CFrame = Root.CFrame + (Camera.CFrame.RightVector * (Delta * _G.FlySpeed))
+                end
+            end
+        end
+    end)
+end)
+
+FlySection:NewSlider("CFrame Fly Speed", "Speed of the CFrame Fly!", 250, 10, function(s) -- 250 (MaxValue) | 0 (MinValue)
+    _G.FlySpeed = s
+end)
+FlySection:NewLabel("========================================")
