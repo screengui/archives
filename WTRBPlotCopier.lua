@@ -133,9 +133,7 @@ Copy.MouseButton1Click:Connect(function()
 			if Models[i] ~= nil and Models[i].SaveCFrame ~= nil then
 				local cs = bp.CFrame:ToObjectSpace(Models[i].SaveCFrame)
 				local c = Base.CFrame:ToWorldSpace(cs)
-					task.spawn(function()
 				Stamp:InvokeServer(Models[i].AssetId, c)
-						end)
 			end
 			Copy.Text = i.."/"..Amount
 			i = i + 1
